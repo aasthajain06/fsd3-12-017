@@ -2,28 +2,28 @@ import express from "express";
 
 const app = express();
 
-app.get("/", (req, res) => { 
-  //res.send("Hello Express!");
-  //res.send("<h1>Hello Express</h1>");
+app.get("/", (req, res) => {
+  //   res.send("Hello Express");
+  // res.send("<h1>hello express</h1>");
+
   res.send(`
     <h1>Hello Server</h1>
-    <h2>I am responding from express framework</h2>
-    <h3>The code is minimal and easy to return</h3>
-  `);
+    <h2>i am responding from express framework </h2>
+    <h3>the code is minimal and easy to return </h3>
+    `);
 });
 
-app.get("/about", (req, res) => {
-  res.send("<h2>About Page</h2>");
-      });
-
-app.get("/products", (req, res) => {
-  const product ={
+app.get("/abont", (req, res) => {
+  res.send("<h2>abont page </h2>");
+});
+app.get("/products", (res, req) => {
+  const product = {
     id: 1,
     name: "Mobile",
-    price: 10000
-  }:
+    price: 2500,
+  };
   res.send(product);
 });
 
-//this line must be last line
+// this line must be last line
 app.listen(4444, () => console.log("prg1 is running at 4444"));

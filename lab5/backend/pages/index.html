@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Learning - Online Coaching Classes</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons for Social Media -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .page { display: none; }
+    .page.active { display: block; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen">
+
+  <!-- NAVIGATION BAR (Shared) -->
+  <nav class="bg-indigo-900 text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2 cursor-pointer" onclick="showPage('home')">
+          <i class="fa-solid fa-graduation-cap text-indigo-400 text-2xl"></i>
+          <span class="font-bold text-xl tracking-wide">Apex Learning</span>
+        </div>
+        
+        <!-- Desktop Nav Links -->
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
+          <button onclick="showPage('home')" class="nav-btn hover:text-indigo-300 transition">Home</button>
+          <button onclick="showPage('courses')" class="nav-btn hover:text-indigo-300 transition">Courses</button>
+          <button onclick="showPage('about')" class="nav-btn hover:text-indigo-300 transition">About Us</button>
+          <button onclick="showPage('pricing')" class="nav-btn hover:text-indigo-300 transition">Pricing & Schedule</button>
+          <button onclick="showPage('contact')" class="nav-btn hover:text-indigo-300 transition">Contact</button>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="hidden md:block">
+          <button onclick="showPage('contact')" class="bg-indigo-500 hover:bg-indigo-600 px-4 py-2 rounded-lg font-medium text-sm transition">
+            Free Trial Class
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-indigo-950 px-4 pt-2 pb-4 space-y-2 text-sm">
+      <button onclick="showPage('home')" class="block w-full text-left py-2 hover:text-indigo-300">Home</button>
+      <button onclick="showPage('courses')" class="block w-full text-left py-2 hover:text-indigo-300">Courses</button>
+      <button onclick="showPage('about')" class="block w-full text-left py-2 hover:text-indigo-300">About Us</button>
+      <button onclick="showPage('pricing')" class="block w-full text-left py-2 hover:text-indigo-300">Pricing & Schedule</button>
+      <button onclick="showPage('contact')" class="block w-full text-left py-2 hover:text-indigo-300">Contact</button>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="flex-grow">
+    
+    <!-- PAGE 1: HOME -->
+    <section id="home" class="page active">
+      <!-- Hero Section -->
+      <div class="bg-indigo-900 text-white py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 leading-tight">
+              Master Your Academic & Career Goals Online
+            </h1>
+            <p class="text-indigo-200 text-lg mb-8">
+              Live interactive coaching sessions, personalized mentorship, and comprehensive study plans for Grade 8–12 and competitive exams.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <button onclick="showPage('courses')" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg transition">
+                Explore Courses
+              </button>
+              <button onclick="showPage('contact')" class="bg-transparent border border-white hover:bg-white hover:text-indigo-900 text-white font-semibold px-6 py-3 rounded-lg transition">
+                Book Free Trial
+              </button>
+            </div>
+          </div>
+          <div class="hidden md:block">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Students learning" class="rounded-xl shadow-2xl">
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlights Section -->
+      <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-slate-900">Why Choose Apex Learning?</h2>
+          <p class="text-slate-600 mt-2">Proven methodology backed by expert educators</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+              <i class="fa-solid fa-video"></i>
+            </div>
+            <h3 class="font-bold text-xl mb-2">Live Interactive Classes</h3>
+            <p class="text-slate-600 text-sm">Two-way audio and visual engagement with real-time doubt resolution.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+              <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <h3 class="font-bold text-xl mb-2">Expert Instructors</h3>
+            <p class="text-slate-600 text-sm">Learn directly from top-tier educators with 10+ years of teaching expertise.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="font-bold text-xl mb-2">Trackable Analytics</h3>
+            <p class="text-slate-600 text-sm">Detailed performance reports, regular mock tests, and progress tracking.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: COURSES -->
+    <section id="courses" class="page">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h1 class="text-3xl font-extrabold text-slate-900">Our Coaching Programs</h1>
+          <p class="text-slate-600 mt-2">Comprehensive curriculum tailored for every academic level</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Course Card 1 -->
+          <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=600&q=80" alt="Mathematics" class="h-48 w-full object-cover">
+            <div class="p-6">
+              <span class="text-xs font-semibold uppercase text-indigo-600 bg-indigo-50 px-2 py-1 rounded">Grades 9–12</span>
+              <h3 class="font-bold text-xl mt-2 mb-2">Advanced Mathematics</h3>
+              <p class="text-slate-600 text-sm mb-4">Algebra, Calculus, Geometry, and Trigonometry with problem-solving strategies.</p>
+              <button onclick="showPage('contact')" class="w-full bg-indigo-600 text-white font-medium py-2 rounded-lg hover:bg-indigo-700 transition">Enroll Now</button>
+            </div>
+          </div>
+          <!-- Course Card 2 -->
+          <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80" alt="Science" class="h-48 w-full object-cover">
+            <div class="p-6">
+              <span class="text-xs font-semibold uppercase text-indigo-600 bg-indigo-50 px-2 py-1 rounded">Grades 9–12</span>
+              <h3 class="font-bold text-xl mt-2 mb-2">Physics & Chemistry</h3>
+              <p class="text-slate-600 text-sm mb-4">Conceptual learning, lab simulations, and numerical breakdown for foundational science.</p>
+              <button onclick="showPage('contact')" class="w-full bg-indigo-600 text-white font-medium py-2 rounded-lg hover:bg-indigo-700 transition">Enroll Now</button>
+            </div>
+          </div>
+          <!-- Course Card 3 -->
+          <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" alt="Competitive Exam" class="h-48 w-full object-cover">
+            <div class="p-6">
+              <span class="text-xs font-semibold uppercase text-indigo-600 bg-indigo-50 px-2 py-1 rounded">Test Prep</span>
+              <h3 class="font-bold text-xl mt-2 mb-2">Competitive Exam Prep</h3>
+              <p class="text-slate-600 text-sm mb-4">Targeted practice, time-management techniques, and past paper walkthroughs.</p>
+              <button onclick="showPage('contact')" class="w-full bg-indigo-600 text-white font-medium py-2 rounded-lg hover:bg-indigo-700 transition">Enroll Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: ABOUT US -->
+    <section id="about" class="page">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-4">Empowering Students Worldwide</h1>
+            <p class="text-slate-600 leading-relaxed mb-4">
+              Founded in 2020, Apex Learning was built on a simple promise: make high-quality education accessible to every student, anywhere. We pair small batch sizes with structured learning outcomes to guarantee consistent academic growth.
+            </p>
+            <p class="text-slate-600 leading-relaxed">
+              Our core values emphasize conceptual clarity over rote memorization, encouraging critical thinking and long-term academic retention.
+            </p>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Team" class="rounded-xl shadow-md">
+          </div>
+        </div>
+
+        <!-- Instructor Section -->
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-slate-900">Meet Our Faculty</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
+            <div class="w-24 h-24 rounded-full bg-slate-300 mx-auto mb-4 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Faculty" class="w-full h-full object-cover">
+            </div>
+            <h3 class="font-bold text-lg">Dr. Sarah Jenkins</h3>
+            <p class="text-indigo-600 text-sm">Head of Mathematics</p>
+            <p class="text-slate-500 text-xs mt-2">Ph.D. in Applied Math, 12+ years teaching experience.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
+            <div class="w-24 h-24 rounded-full bg-slate-300 mx-auto mb-4 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="Faculty" class="w-full h-full object-cover">
+            </div>
+            <h3 class="font-bold text-lg">Prof. Marcus Vance</h3>
+            <p class="text-indigo-600 text-sm">Physics Lead</p>
+            <p class="text-slate-500 text-xs mt-2">M.Sc. Physics, ex-exam board evaluator.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
+            <div class="w-24 h-24 rounded-full bg-slate-300 mx-auto mb-4 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1580894732413-b7ce75e78536?auto=format&fit=crop&w=300&q=80" alt="Faculty" class="w-full h-full object-cover">
+            </div>
+            <h3 class="font-bold text-lg">Elena Rostova</h3>
+            <p class="text-indigo-600 text-sm">Chemistry Mentor</p>
+            <p class="text-slate-500 text-xs mt-2">Specialist in Organic Chemistry & STEM outreach.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: SCHEDULE & PRICING -->
+    <section id=""pricing" class="page">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h1 class="text-3xl font-extrabold text-slate-900">Flexible Plans & Schedules</h1>
+          <p class="text-slate-600 mt-2">Transparent pricing with no hidden fees</p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+            <h3 class="text-lg font-bold">Standard Batch</h3>
+            <div class="my-4"><span class="text-4xl font-extrabold">$149</span><span class="text-slate-500">/month</span></div>
+            <ul class="text-sm text-slate-600 space-y-3 mb-6">
+              <li><i class="fa-solid fa-check text-green-500 mr-2"></i> 3 Live Classes / Week</li>
+              <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Class Recordings Access</li>
+              <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Batch size: Up to 25</li>
+            </ul>
+            <button onclick="showPage('contact')" class="w-full bg-slate-100 text-slate-800 font-medium py-2 rounded-lg hover:bg-slate-200 transition">Select Plan</button>
+          </div>
+          <div class="bg-indigo-900 text-white p-8 rounded-xl shadow-lg relative transform md:-translate-y-2">
+            <span class="bg-indigo-500 text-xs font-bold uppercase px-3 py-1 rounded-full absolute top-4 right-4">Popular</span>
+            <h3 class="text-lg font-bold">Premium Small Batch</h3>
+            <div class="my-4"><span class="text-4xl font-extrabold">$249</span><span class="text-indigo-200">/month</span></div>
+            <ul class="text-sm text-indigo-100 space-y-3 mb-6">
+              <li><i class="fa-solid fa-check text-indigo-400 mr-2"></i> 5 Live Classes / Week</li>
+              <li><i class="fa-solid fa-check text-indigo-400 mr-2"></i> 1-on-1 Doubt Sessions</li>
+              <li><i class="fa-solid fa-check text-indigo-400 mr-2"></i> Batch size: Max 8 students</li>
+              <li><i class="fa-solid fa-check text-indigo-400 mr-2"></i> Weekly Mock Tests</li>
+            </ul>
+            <button onclick="showPage('contact')" class="w-full bg-indigo-500 text-white font-medium py-2 rounded-lg hover:bg-indigo-600 transition">Select Plan</button>
+          </div>
+          <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+            <h3 class="text-lg font-bold">1-on-1 Mentorship</h3>
+            <div class="my-4"><span class="text-4xl font-extrabold">$399</span><span class="text-slate-500">/month</span></div>
+            <ul class="text-sm text-slate-600 space-y-3 mb-6">
+              <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Custom Time Slots</li>
+              <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Dedicated Mentor</li>
+              <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Customized Curriculum</li>
+            </ul>
+            <button onclick="showPage('contact')" class="w-full bg-slate-100 text-slate-800 font-medium py-2 rounded-lg hover:bg-slate-200 transition">Select Plan</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 5: CONTACT -->
+    <section id="contact" class="page">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+          <h1 class="text-2xl font-bold text-slate-900 mb-2 text-center">Get in Touch / Book Free Class</h1>
+          <p class="text-slate-600 text-sm text-center mb-6">Fill out the form below and our counselor will call you back within 24 hours.</p>
+          
+          <form onsubmit="event.preventDefault(); alert('Form submitted!');" class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+              <input type="text" class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Jane Doe" required>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+              <input type="email" class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="jane@example.com" required>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-1">Course of Interest</label>
+              <select class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                <option>Advanced Mathematics</option>
+                <option>Physics & Chemistry</option>
+                <option>Competitive Exam Prep</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-1">Message / Questions</label>
+              <textarea rows="4" class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Tell us about your learning goals..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-lg transition">Submit Application</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (Shared) -->
+  <footer class="bg-indigo-950 text-slate-300 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center space-x-2 text-white mb-4">
+            <i class="fa-solid fa-graduation-cap text-indigo-400 text-2xl"></i>
+            <span class="font-bold text-xl">Apex Learning</span>
+          </div>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Empowering students globally with live, interactive online coaching and personalized academic mentorship.
+          </p>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><button onclick="showPage('home')" class="hover:text-white transition">Home</button></li>
+            <li><button onclick="showPage('courses')" class="hover:text-white transition">Courses</button></li>
+            <li><button onclick="showPage('about')" class="hover:text-white transition">About Us</button></li>
+            <li><button onclick="showPage('pricing')" class="hover:text-white transition">Pricing</button></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contact Info -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Contact Info</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><i class="fa-solid fa-envelope mr-2 text-indigo-400"></i> support@apexlearning.com</li>
+            <li><i class="fa-solid fa-phone mr-2 text-indigo-400"></i> +1 (800) 555-0199</li>
+            <li><i class="fa-solid fa-location-dot mr-2 text-indigo-400"></i> 100 Learning Way, Suite 400</li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Social Media Icons -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Follow Us</h4>
+          <p class="text-sm text-slate-400 mb-4">Join our community for daily study tips and updates.</p>
+          <div class="flex space-x-4 text-lg">
+            <a href="#" class="w-10 h-10 rounded-full bg-indigo-900 hover:bg-indigo-600 text-white flex items-center justify-center transition">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-indigo-900 hover:bg-indigo-600 text-white flex items-center justify-center transition">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-indigo-900 hover:bg-indigo-600 text-white flex items-center justify-center transition">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-indigo-900 hover:bg-indigo-600 text-white flex items-center justify-center transition">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-indigo-900 hover:bg-indigo-600 text-white flex items-center justify-center transition">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-indigo-900 pt-6 text-center text-xs text-slate-500">
+        &copy; 2026 Apex Learning Inc. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Page Routing Script -->
+  <script>
+    function showPage(pageId) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+
+      // Show target page
+      const targetPage = document.getElementById(pageId);
+      if (targetPage) {
+        targetPage.classList.add('active');
+      }
+
+      // Close mobile menu if open
+      document.getElementById('mobile-menu').classList.add('hidden');
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Mobile menu toggle logic
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
