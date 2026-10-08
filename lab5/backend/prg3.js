@@ -14,4 +14,4 @@ app.use((req, res) => {
     res.status(404).send("<h1>Page Not found</h1>");
 });
 
-app.listen(4444, () => console.log("prg3 is running at 4444"));
+app.listen(4444, (req, res) => console.log("prg3 is running at 4444"));
